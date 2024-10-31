@@ -4,12 +4,12 @@ FROM caddy:${CADDY_VERSION}-builder AS builder
 RUN xcaddy build \
     --with github.com/lucaslorentz/caddy-docker-proxy/plugin \
     --with github.com/caddy-dns/cloudflare \
-    --with github.com/caddy-dns/loopia \
     --with github.com/caddy-dns/digitalocean \
-    --with github.com/caddy-dns/gandi \
     --with github.com/kirsch33/realip \
     --with github.com/mholt/caddy-ratelimit \
-    --with github.com/ggicci/caddy-jwt
+    --with github.com/ggicci/caddy-jwt \
+    --with github.com/mholt/caddy-l4
+
 
 FROM caddy:${CADDY_VERSION}-alpine
 
