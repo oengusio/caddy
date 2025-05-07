@@ -1,0 +1,19 @@
+services:
+  caddy:
+    network_mode: host
+    environment:
+      - CF_ZONE_TOKEN=
+      - CF_API_TOKEN=
+      - CADDY_INGRESS_NETWORKS=caddy
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+    build:
+      context: .
+    ports:
+      - '80:80'
+      - '2019:2019'
+
+networks:
+  caddy:
+    name: caddy
+    attachable: true
